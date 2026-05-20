@@ -308,7 +308,7 @@ export default function Dashboard() {
 
           <div className="text-right flex items-center gap-6">
             <span className="text-xl font-extrabold tracking-wider bg-gradient-to-r from-[#00D4AA] to-[#7C3AED] bg-clip-text text-transparent font-sans">
-              WASHCLUB
+              WASHDOOR
             </span>
             {user && (
               <button

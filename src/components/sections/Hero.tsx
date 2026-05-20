@@ -261,7 +261,7 @@ export default function Hero() {
               {/* Custom Navigation */}
               <div className="flex items-center justify-between border-b border-white/5 pb-2">
                 <span className="font-heading font-extrabold text-sm tracking-tight text-white">
-                  Wash<span className="text-luxuryTeal">Club</span>
+                  Wash<span className="text-luxuryTeal">Door</span>
                 </span>
                 <span className="text-[10px] text-luxuryTextSecondary font-semibold">Active Order</span>
               </div>

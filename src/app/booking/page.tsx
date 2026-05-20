@@ -479,7 +479,7 @@ export default function Booking() {
 
           <div className="text-right">
             <span className="text-xl font-extrabold tracking-wider bg-gradient-to-r from-[#00D4AA] to-[#7C3AED] bg-clip-text text-transparent">
-              WASHCLUB
+              WASHDOOR
             </span>
           </div>
         </div>

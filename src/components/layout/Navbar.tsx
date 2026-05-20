@@ -63,7 +63,7 @@ export default function Navbar() {
               </div>
             </div>
             <span className="font-heading font-extrabold text-xl tracking-tight text-white">
-              Wash<span className="text-luxuryTeal">Club</span>
+              Wash<span className="text-luxuryTeal">Door</span>
             </span>
           </a>
 
