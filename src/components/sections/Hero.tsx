@@ -319,7 +319,7 @@ export default function Hero() {
                 <div className="flex items-center gap-2">
                   <Shield className="w-4 h-4 text-luxuryTeal" />
                   <span className="text-[10px] font-bold uppercase tracking-wider text-white">
-                    WashClub Care Guarantee
+                    WashDoor Care Guarantee
                   </span>
                 </div>
                 <p className="text-[10px] text-luxuryTextSecondary leading-normal">

@@ -116,7 +116,7 @@ export default function Dashboard() {
     if (isMock) {
       // 1. Sandbox Mock Fetch from LocalStorage
       setTimeout(() => {
-        const mockOrders: Order[] = JSON.parse(localStorage.getItem("washclub_mock_orders") || "[]");
+        const mockOrders: Order[] = JSON.parse(localStorage.getItem("washdoor_mock_orders") || "[]");
         setOrders(mockOrders);
         if (mockOrders.length > 0) {
           setSelectedOrder(mockOrders[mockOrders.length - 1]); // default select latest order
@@ -232,7 +232,7 @@ export default function Dashboard() {
       setTimeout(() => {
         setUser({
           id: "mock-user-123",
-          email: authEmail || "customer@washclub.in",
+          email: authEmail || "customer@washdoor.in",
           user_metadata: { name: "Premium Client" }
         });
         setAuthLoading(false);
@@ -260,7 +260,7 @@ export default function Dashboard() {
   const handleDemoLogin = () => {
     setUser({
       id: "mock-demo-id",
-      email: "demo@washclub.in",
+      email: "demo@washdoor.in",
       user_metadata: { name: "Valued Customer" }
     });
   };

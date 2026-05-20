@@ -140,7 +140,7 @@ export default function Booking() {
       setTimeout(() => {
         const mockUser = {
           id: "mock-user-uuid-12345",
-          email: authEmail || "customer@washclub.in",
+          email: authEmail || "customer@washdoor.in",
           user_metadata: {
             name: authName || "Valued Guest",
             phone: authPhone || "9999999999"
@@ -217,7 +217,7 @@ export default function Booking() {
   const handleGuestMockLogin = () => {
     setUser({
       id: "mock-guest-id",
-      email: "guest@washclub.in",
+      email: "guest@washdoor.in",
       user_metadata: {
         name: "Premium Guest",
         phone: "+91 99999 88888"
@@ -377,9 +377,9 @@ export default function Booking() {
           })
         };
 
-        const existingOrders = JSON.parse(localStorage.getItem("washclub_mock_orders") || "[]");
+        const existingOrders = JSON.parse(localStorage.getItem("washdoor_mock_orders") || "[]");
         existingOrders.push(mockOrder);
-        localStorage.setItem("washclub_mock_orders", JSON.stringify(existingOrders));
+        localStorage.setItem("washdoor_mock_orders", JSON.stringify(existingOrders));
 
         setPlacedOrderId(orderId);
         setBookingConfirmed(true);
@@ -1110,7 +1110,7 @@ export default function Booking() {
               </h2>
 
               <p className="text-sm font-medium text-slate-400 font-sans max-w-sm mx-auto mb-8 leading-relaxed">
-                Thank you for choosing WashClub. Our premium concierge valet will pick up your wardrobe items at the designated schedule.
+                Thank you for choosing WashDoor. Our premium concierge valet will pick up your wardrobe items at the designated schedule.
               </p>
 
               {/* Invoice details sheet */}
