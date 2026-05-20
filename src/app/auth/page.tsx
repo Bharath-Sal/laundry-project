@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useEffect } from "react";
+import type { User } from "@supabase/supabase-js";
 import { motion } from "framer-motion";
-import { Lock, Mail, User, Phone, ArrowLeft } from "lucide-react";
+import { Lock, Mail, User as UserIcon, Phone, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
 
@@ -15,7 +15,7 @@ export default function AuthPage() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [authError, setAuthError] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -35,7 +35,14 @@ export default function AuthPage() {
     
     if (isMock) {
       setTimeout(() => {
-        setUser({ email: `mock-${provider}-user@washclub.in`, user_metadata: { name: "Mock User" } });
+        setUser({
+          id: "mock-user",
+          email: `mock-${provider}-user@washclub.in`,
+          app_metadata: {},
+          aud: "authenticated",
+          created_at: new Date().toISOString(),
+          user_metadata: { name: "Mock User" }
+        } as User);
       }, 1000);
       return;
     }
@@ -60,7 +67,14 @@ export default function AuthPage() {
 
     if (isMock) {
       setTimeout(() => {
-        setUser({ email: authEmail || "guest@washclub.in", user_metadata: { name: authName || "Guest" } });
+        setUser({
+          id: "mock-user",
+          email: authEmail || "guest@washclub.in",
+          app_metadata: {},
+          aud: "authenticated",
+          created_at: new Date().toISOString(),
+          user_metadata: { name: authName || "Guest" }
+        } as User);
         setAuthLoading(false);
       }, 1000);
       return;
@@ -95,7 +109,7 @@ export default function AuthPage() {
       <main className="min-h-screen flex flex-col items-center justify-center bg-[#0A0F2C] text-white px-6">
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center">
           <div className="w-20 h-20 bg-gradient-to-r from-[#00D4AA] to-[#7C3AED] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(0,212,170,0.3)]">
-            <User className="w-10 h-10 text-white" />
+            <UserIcon className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-3xl font-black mb-2">Welcome Back</h1>
           <p className="text-slate-400 mb-8">{user.user_metadata?.name || user.email}</p>
@@ -134,7 +148,7 @@ export default function AuthPage() {
           {isSignUp && (
             <>
               <div className="relative">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <UserIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input type="text" required value={authName} onChange={(e) => setAuthName(e.target.value)} placeholder="Full Name" className="w-full bg-[#0A0F2C] border border-white/10 rounded-xl pl-11 pr-4 py-3 text-sm text-white focus:outline-none focus:border-[#00D4AA]" />
               </div>
               <div className="relative">

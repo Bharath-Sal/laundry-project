@@ -1,11 +1,32 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+interface Order {
+  id: string;
+  pickup_date: string;
+  pickup_slot: string;
+  delivery_date: string;
+  delivery_slot: string;
+  total_amount: number;
+}
+
+function isOrder(item: unknown): item is Order {
+  if (typeof item !== "object" || item === null) return false;
+  const record = item as Record<string, unknown>;
+  return (
+    typeof record.id === "string" &&
+    typeof record.pickup_date === "string" &&
+    typeof record.pickup_slot === "string" &&
+    typeof record.delivery_date === "string" &&
+    typeof record.delivery_slot === "string" &&
+    typeof record.total_amount === "number"
+  );
+}
+
 export default function CartPage() {
-  const [orders, setOrders] = useState<any[]>([]);
+  const [orders, setOrders] = useState<Order[]>([]);
 
   // Pull mock orders that the sandbox booking flow stores in localStorage
   useEffect(() => {
@@ -13,7 +34,10 @@ export default function CartPage() {
       const stored = localStorage.getItem("washclub_mock_orders");
       if (stored) {
         try {
-          setOrders(JSON.parse(stored));
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed)) {
+            setOrders(parsed.filter(isOrder));
+          }
         } catch {
           setOrders([]);
         }
