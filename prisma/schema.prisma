@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  name         String?
+  passwordHash String?
+  image        String?
+  createdAt    DateTime  @default(now())
+  orders       Order[]
+  addresses    Address[]
+  accounts     Account[]
+}
+
+model Account {
+  id                Int    @id @default(autoincrement())
+  userId            Int
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+
+model Address {
+  id        Int    @id @default(autoincrement())
+  userId    Int
+  label     String // e.g. "Home", "Office"
+  street    String
+  city      String
+  state     String
+  zip       String
+  country   String
+  user      User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Service {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  priceCents  Int
+  durationMin Int
+  imageUrl    String?
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id          Int        @id @default(autoincrement())
+  userId      Int
+  addressId   Int
+  status      OrderStatus @default(PENDING)
+  totalCents  Int
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  user        User @relation(fields: [userId], references: [id])
+  address     Address @relation(fields: [addressId], references: [id])
+  items       OrderItem[]
+}
+
+model OrderItem {
+  id        Int @id @default(autoincrement())
+  orderId   Int
+  serviceId Int
+  quantity  Int @default(1)
+  order   Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  service Service @relation(fields: [serviceId], references: [id])
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELED
+}
