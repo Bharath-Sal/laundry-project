@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Shirt, Flame, ChevronRight, Gem, ShieldCheck, CheckCircle, LucideIcon } from "lucide-react";
@@ -261,12 +262,12 @@ export default function Services() {
             <span className="text-sm font-semibold text-slate-400 font-sans">
               Have a bespoke fabric query, customized embroidery, or bulk commercial requests?
             </span>
-            <a
-              href="#booking"
+            <Link
+              href="/booking"
               className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#00D4AA] to-[#7C3AED] text-sm font-bold text-white shadow-[0_0_20px_rgba(0,212,170,0.15)] hover:shadow-[0_0_30px_rgba(0,212,170,0.3)] transition-all duration-300 scale-100 hover:scale-[1.03]"
             >
               Consult Cleanse Specialist
-            </a>
+            </Link>
           </div>
         </motion.div>
 

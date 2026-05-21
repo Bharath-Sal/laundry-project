@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, Clock, ArrowRight, RefreshCw, Sparkles, ShoppingBag, Plus, Minus } from "lucide-react";
@@ -360,17 +361,24 @@ export default function Pricing() {
 
               {/* Action booking CTA */}
               <div className="mt-8 relative z-10">
-                <a
-                  href={totals.itemCount > 0 ? "#booking" : "#services"}
-                  className={`w-full py-4 rounded-2xl flex items-center justify-center gap-2 text-sm font-black tracking-wide text-white transition-all duration-300 scale-100 hover:scale-[1.01] ${
-                    totals.itemCount > 0
-                      ? "bg-gradient-to-r from-[#00D4AA] to-[#7C3AED] shadow-[0_0_30px_rgba(0,212,170,0.2)] hover:shadow-[0_0_40px_rgba(0,212,170,0.35)] cursor-pointer"
-                      : "bg-white/[0.02] border border-white/5 text-slate-500 cursor-not-allowed"
-                  }`}
-                >
-                  Proceed to Schedule
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                  {totals.itemCount > 0 ? (
+                  <Link
+                    href="/booking"
+                    className="w-full py-4 rounded-2xl flex items-center justify-center gap-2 text-sm font-black tracking-wide text-white transition-all duration-300 scale-100 bg-gradient-to-r from-[#00D4AA] to-[#7C3AED] shadow-[0_0_30px_rgba(0,212,170,0.2)] hover:shadow-[0_0_40px_rgba(0,212,170,0.35)] hover:scale-[1.01]"
+                  >
+                    Proceed to Schedule
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    className="w-full py-4 rounded-2xl flex items-center justify-center gap-2 text-sm font-black tracking-wide text-slate-500 bg-white/[0.02] border border-white/5 cursor-not-allowed"
+                  >
+                    Proceed to Schedule
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                )}
                 <div className="text-[11px] font-bold text-slate-500 text-center mt-3 flex items-center justify-center gap-1.5 font-sans">
                   <span>Minimum pick-up order ₹250</span>
                   <span className="w-1 h-1 rounded-full bg-slate-700" />
