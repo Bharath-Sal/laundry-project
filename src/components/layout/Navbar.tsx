@@ -17,12 +17,15 @@ const NAV_ITEMS = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navLinkClass = isScrolled
+    ? "relative text-sm font-medium text-slate-200 hover:text-white transition-colors duration-200 py-2 group"
+    : "relative text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200 py-2 group";
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
+        if (window.scrollY > 20) {
+          setIsScrolled(true);
+        } else {
         setIsScrolled(false);
       }
     };
@@ -74,7 +77,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleLinkClick(e, item.href)}
-                className="relative text-sm font-medium text-luxuryTextSecondary hover:text-white transition-colors duration-200 py-2 group"
+                className={navLinkClass}
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-luxuryTeal to-luxuryPurple scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out" />
@@ -120,9 +123,9 @@ export default function Navbar() {
               className="md:hidden p-2 rounded-lg text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-luxuryTeal" />
+                <X className="w-6 h-6 text-[#0A0F2C]" />
               ) : (
-                <Menu className="w-6 h-6 text-white" />
+                <Menu className={isScrolled ? "w-6 h-6 text-white" : "w-6 h-6 text-slate-900"} />
               )}
             </button>
           </div>
@@ -145,7 +148,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleLinkClick(e, item.href)}
-                  className="text-lg font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200 py-2 border-b border-slate-200"
+                  className={isScrolled ? "text-slate-200 hover:text-white transition-colors duration-200 py-2 border-b border-slate-200" : "text-slate-700 hover:text-slate-900 transition-colors duration-200 py-2 border-b border-slate-200"}
                 >
                   {item.name}
                 </a>
