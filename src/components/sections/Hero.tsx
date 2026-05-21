@@ -45,10 +45,10 @@ export default function Hero() {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen w-full flex items-center justify-center bg-[#0A0F2C] overflow-hidden px-6 py-20 md:px-12 lg:px-24"
+      className="relative min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-white via-slate-50 to-slate-100 overflow-hidden px-6 py-20 md:px-12 lg:px-24 text-slate-900"
     >
       {/* Background Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       {/* GPU Spotlight Effect */}
       <motion.div
@@ -111,10 +111,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.2)]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 border border-slate-200 backdrop-blur-md shadow-[0_4px_30px_rgba(15,23,42,0.08)]"
           >
             <Sparkles className="w-4 h-4 text-luxuryTeal animate-pulse" />
-            <span className="text-xs font-bold tracking-wider text-white uppercase">
+            <span className="text-xs font-bold tracking-wider text-slate-900 uppercase">
               ✦ Hyderabad&apos;s Premium Garment Care
             </span>
           </motion.div>
@@ -124,7 +124,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.05]"
+            className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-950 leading-[1.05]"
           >
             Your Clothes <br />
             <span className="bg-gradient-to-r from-luxuryTeal via-[#5F7CFA] to-luxuryPurple bg-clip-text text-transparent drop-shadow-sm">
@@ -137,12 +137,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-luxuryTextSecondary font-medium leading-relaxed max-w-2xl"
+            className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed max-w-2xl"
           >
             Professional laundry, dry cleaning, and bespoke garment care delivered direct to your doorstep in{" "}
-            <span className="text-white font-semibold">Gachibowli</span>,{" "}
-            <span className="text-white font-semibold">Banjara Hills</span>,{" "}
-            <span className="text-white font-semibold">Kondapur</span>, and beyond.
+            <span className="text-slate-900 font-semibold">Gachibowli</span>,{" "}
+            <span className="text-slate-900 font-semibold">Banjara Hills</span>,{" "}
+            <span className="text-slate-900 font-semibold">Kondapur</span>, and beyond.
           </motion.p>
 
           {/* CTA Buttons (Magnetic Hover) */}
@@ -172,9 +172,9 @@ export default function Hero() {
               animate={{ x: magneticPos2.x, y: magneticPos2.y }}
               transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
               onClick={() => scrollToSection("#how-it-works")}
-              className="group flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:border-white/20 text-white font-semibold text-base rounded-full px-8 py-4 backdrop-blur-md transition-all duration-300 hover:bg-white/10 pointer-events-auto"
+              className="group flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-slate-300 text-slate-900 font-semibold text-base rounded-full px-8 py-4 transition-all duration-300 hover:bg-slate-100 pointer-events-auto"
             >
-              <Play className="w-4 h-4 fill-white text-white group-hover:scale-110 transition-transform duration-300" />
+              <Play className="w-4 h-4 fill-slate-900 text-slate-900 group-hover:scale-110 transition-transform duration-300" />
               See How It Works
             </motion.button>
           </motion.div>
@@ -190,13 +190,13 @@ export default function Hero() {
               {[1, 2, 3, 4].map((i) => (
                 <div
                   key={i}
-                  className="w-8 h-8 rounded-full border border-[#0A0F2C] bg-gradient-to-br from-luxuryTeal/40 to-luxuryPurple/40 flex items-center justify-center text-[10px] font-bold text-white shadow-md"
+                  className="w-8 h-8 rounded-full border border-slate-200 bg-gradient-to-br from-luxuryTeal/40 to-luxuryPurple/40 flex items-center justify-center text-[10px] font-bold text-slate-950 shadow-md"
                 >
                   {String.fromCharCode(64 + i)}
                 </div>
               ))}
             </div>
-            <p className="text-sm font-semibold text-luxuryTextSecondary">
+            <p className="text-sm font-semibold text-slate-600">
               <span className="text-luxuryTeal">★ 4.9</span> rated by 10,000+ families in Hyderabad
             </p>
           </motion.div>

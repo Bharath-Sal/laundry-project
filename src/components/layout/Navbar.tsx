@@ -49,8 +49,8 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-12 py-4",
           isScrolled
-            ? "bg-[#0A0F2C]/80 backdrop-blur-md border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
-            : "bg-transparent border-b border-transparent"
+            ? "bg-[#0A0F2C]/92 backdrop-blur-md border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+            : "bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-sm"
         )}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -62,7 +62,7 @@ export default function Navbar() {
                 <Sparkles className="w-5 h-5 text-luxuryTeal group-hover:rotate-12 transition-transform duration-300" />
               </div>
             </div>
-            <span className="font-heading font-extrabold text-xl tracking-tight text-white">
+            <span className="font-heading font-extrabold text-xl tracking-tight text-slate-900">
               Wash<span className="text-luxuryTeal">Door</span>
             </span>
           </a>
@@ -86,7 +86,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link 
               href="/auth"
-              className="hidden md:flex p-2 rounded-full border border-white/10 hover:bg-white/5 hover:border-white/20 text-luxuryTextSecondary hover:text-white transition-all shadow-sm"
+              className="hidden md:flex p-2 rounded-full border border-slate-200 hover:bg-slate-100 hover:border-slate-300 text-slate-700 hover:text-slate-900 transition-all shadow-sm"
               title="Sign In / Register"
             >
               <User className="w-5 h-5" />
@@ -94,7 +94,7 @@ export default function Navbar() {
             
             <Link 
               href="/booking"
-              className="hidden md:flex p-2 rounded-full border border-white/10 hover:bg-[#00D4AA]/20 hover:border-[#00D4AA]/50 text-luxuryTextSecondary hover:text-[#00D4AA] transition-all shadow-sm relative"
+              className="hidden md:flex p-2 rounded-full border border-slate-200 hover:bg-[#E6FFFA] hover:border-[#00D4AA]/40 text-slate-700 hover:text-[#0A0F2C] transition-all shadow-sm relative"
               title="View Cart"
             >
               <ShoppingCart className="w-5 h-5" />
@@ -102,13 +102,13 @@ export default function Navbar() {
             </Link>
 
             <Button
-              className="hidden md:inline-flex relative overflow-hidden group/btn bg-transparent border border-luxuryTeal/40 hover:border-luxuryTeal text-white font-medium rounded-full px-6 py-2 transition-all duration-300 shadow-[0_0_15px_rgba(0,212,170,0.15)] hover:shadow-[0_0_25px_rgba(0,212,170,0.4)]"
+              className="hidden md:inline-flex relative overflow-hidden group/btn bg-white border border-slate-300 hover:border-[#00D4AA]/40 text-slate-900 font-medium rounded-full px-6 py-2 transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(0,212,170,0.12)]"
               onClick={() => {
                 const target = document.querySelector("#pricing");
                 if (target) target.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <span className="relative z-10 text-white group-hover/btn:text-luxuryDark transition-colors duration-300">
+              <span className="relative z-10 text-slate-900 group-hover/btn:text-white transition-colors duration-300">
                 Book Now
               </span>
               <span className="absolute inset-0 bg-luxuryTeal scale-x-0 group-hover/btn:scale-x-100 origin-left transition-transform duration-300 ease-out" />
@@ -117,7 +117,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-white hover:bg-white/5 transition-colors focus:outline-none"
+              className="md:hidden p-2 rounded-lg text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6 text-luxuryTeal" />
@@ -137,7 +137,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed top-[72px] left-0 right-0 z-40 bg-[#0A0F2C]/95 backdrop-blur-lg border-b border-white/5 md:hidden"
+            className="fixed top-[72px] left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200 md:hidden"
           >
             <div className="flex flex-col gap-4 p-6">
               {NAV_ITEMS.map((item) => (
@@ -145,7 +145,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleLinkClick(e, item.href)}
-                  className="text-lg font-medium text-luxuryTextSecondary hover:text-white transition-colors duration-200 py-2 border-b border-white/5"
+                  className="text-lg font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200 py-2 border-b border-slate-200"
                 >
                   {item.name}
                 </a>

@@ -7,7 +7,7 @@ import Testimonials from "@/components/sections/Testimonials";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#0A0F2C]">
+    <main className="relative min-h-screen bg-white text-slate-900">
       <Navbar />
       <Hero />
       <HowItWorks />
