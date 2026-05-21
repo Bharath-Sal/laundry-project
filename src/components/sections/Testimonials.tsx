@@ -68,13 +68,13 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="rounded-[32px] border border-white/10 bg-[#111827] p-8 shadow-[0_20px_70px_rgba(0,0,0,0.25)]"
+              className="rounded-[32px] border border-white/10 bg-[#111827] p-6 sm:p-8 shadow-[0_20px_70px_rgba(0,0,0,0.25)] min-h-[220px]"
             >
               <div className="flex items-center justify-between mb-6">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.28em] text-slate-400 font-bold">Customer</p>
-                  <h3 className="text-xl font-black text-white mt-2">{testimonial.name}</h3>
-                </div>
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.28em] text-slate-400 font-bold">Customer</p>
+                    <h3 className="text-xl font-black text-white mt-2">{testimonial.name}</h3>
+                  </div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-[#00D4AA]/10 text-[#00D4AA]">
                   <Quote className="w-5 h-5" />
                 </div>

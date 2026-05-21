@@ -150,7 +150,7 @@ export default function Services() {
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 onClick={() => setActiveCard(isExpanded ? null : service.id)}
-                className="relative group cursor-pointer"
+                className="relative group cursor-pointer min-h-[220px]"
               >
                 <div className="absolute -inset-px rounded-3xl bg-gradient-to-r from-slate-200/20 to-transparent group-hover:from-[#00D4AA]/20 group-hover:to-[#7C3AED]/20 transition-all duration-500 pointer-events-none blur-sm" />
                 <div className="relative h-full p-8 md:p-10 rounded-3xl bg-white shadow-sm border border-slate-200 group-hover:border-slate-300 transition-all duration-500 flex flex-col justify-between overflow-hidden">
@@ -195,7 +195,7 @@ export default function Services() {
 
                   <div>
                     <button
-                      className="inline-flex items-center gap-2 text-sm font-bold text-[#00D4AA] hover:text-[#0A0F2C] transition-colors font-sans mt-2"
+                      className="inline-flex w-full sm:w-auto items-center justify-center gap-2 text-sm font-bold text-[#00D4AA] hover:text-[#0A0F2C] transition-colors font-sans mt-2"
                     >
                       <span>{isExpanded ? "Hide Details" : "View Couture Process"}</span>
                       <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? "rotate-90" : ""}`} />

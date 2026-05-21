@@ -159,7 +159,7 @@ export default function Hero() {
               animate={{ x: magneticPos1.x, y: magneticPos1.y }}
               transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
               onClick={() => scrollToSection("#pricing")}
-              className="group relative flex items-center justify-center gap-2 bg-luxuryTeal hover:bg-[#00ebd0] text-luxuryDark font-bold text-base rounded-full px-8 py-4 shadow-[0_0_30px_rgba(0,212,170,0.3)] hover:shadow-[0_0_40px_rgba(0,212,170,0.5)] transition-all duration-300 pointer-events-auto"
+              className="w-full sm:w-auto group relative flex items-center justify-center gap-2 bg-luxuryTeal hover:bg-[#00ebd0] text-luxuryDark font-bold text-base rounded-full px-8 py-4 shadow-[0_0_30px_rgba(0,212,170,0.3)] hover:shadow-[0_0_40px_rgba(0,212,170,0.5)] transition-all duration-300 pointer-events-auto"
             >
               Book a Pickup
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -172,7 +172,7 @@ export default function Hero() {
               animate={{ x: magneticPos2.x, y: magneticPos2.y }}
               transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
               onClick={() => scrollToSection("#how-it-works")}
-              className="group flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-slate-300 text-slate-900 font-semibold text-base rounded-full px-8 py-4 transition-all duration-300 hover:bg-slate-100 pointer-events-auto"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-slate-300 text-slate-900 font-semibold text-base rounded-full px-8 py-4 transition-all duration-300 hover:bg-slate-100 pointer-events-auto"
             >
               <Play className="w-4 h-4 fill-slate-900 text-slate-900 group-hover:scale-110 transition-transform duration-300" />
               See How It Works
