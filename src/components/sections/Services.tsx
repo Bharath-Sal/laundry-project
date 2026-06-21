@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Shirt, Flame, ChevronRight, Gem, ShieldCheck, CheckCircle, LucideIcon } from "lucide-react";
+import { Sparkles, Shirt, Flame, ChevronRight, Gem, ShieldCheck, CheckCircle, LucideIcon, Wind, Droplets, Truck, Shield, Leaf } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface ServiceItem {
   id: string;
@@ -20,20 +26,20 @@ interface ServiceItem {
 
 const servicesList: ServiceItem[] = [
   {
-    id: "couture",
-    title: "Couture & Heritage Care",
-    subtitle: "For Hyderabad's Finest Silk & Embellishments",
-    icon: Gem,
-    description: "Artisanal dry cleaning utilizing eco-friendly, non-toxic hydrocarbon solvents. Designed specifically for heavy designer lehengas, delicate silk sarees, sherwanis, and luxury labels.",
-    techBadges: ["Hydrocarbon Solvents", "Hand-Finished", "Bead Protection", "Anti-Fading"],
-    timeline: "48 - 72 Hours Delivery",
-    pricingEstimate: "Starts at ₹350 / item",
-    gradient: "from-[#7C3AED] via-[#6366F1] to-[#00D4AA]",
+    id: "steam-ironing",
+    title: "Steam Ironing & Pressing",
+    subtitle: "Crisp, Wrinkle-Free Finish — Every Garment",
+    icon: Flame,
+    description: "Professional Italian steam-table ironing for everyday essentials, plus advanced vacuum suction pressing for executive suits and blazers. Every garment gets the right level of care to lock in a sharp crease without fabric shine.",
+    techBadges: ["Italian Steam Tech", "Vacuum Suction Pressing", "Zero-Shine Promise", "Same Day Available"],
+    timeline: "Same Day Available",
+    pricingEstimate: "Starts at ₹15 / piece",
+    gradient: "from-[#00D4AA] to-[#0A0F2C]",
     details: [
-      "Pre-treatment stain spotting using premium Italian solvents.",
-      "Delicate mesh-bag processing for embroidery & beadwork protection.",
-      "Hydrocarbon technology: Zero chemical odors, zero fiber shrinkage.",
-      "Premium breathable hanger wrapping & muslin dust cover packaging."
+      "Everyday Wear — T-Shirt: ₹15/piece",
+      "Everyday Wear — Shirt: ₹15/piece",
+      "Everyday Wear — Trouser: ₹15/piece",
+      "Executive Suits & Blazers — Vacuum Suction Press: ₹40/item"
     ]
   },
   {
@@ -54,20 +60,20 @@ const servicesList: ServiceItem[] = [
     ]
   },
   {
-    id: "steam-press",
-    title: "Steam & Elite Crease Pressing",
-    subtitle: "The Perfect Crisp Executive Wrinkle-Free Look",
-    icon: Flame,
-    description: "Crisp, pristine creases without fabric shine. Employs advanced Italian utility steam tables and vacuum irons that blow hot air to lock crease structures in shirts and suits.",
-    techBadges: ["Italian Steam Tables", "Vacuum Suction Pressing", "Zero-Shine Promise", "Suit Hanger Pack"],
-    timeline: "Same Day Delivery Available",
-    pricingEstimate: "Starts at ₹40 / item",
-    gradient: "from-[#3B82F6] to-[#7C3AED]",
+    id: "couture",
+    title: "Couture & Heritage Care",
+    subtitle: "For Hyderabad's Finest Silk & Embellishments",
+    icon: Gem,
+    description: "Artisanal dry cleaning utilizing eco-friendly, non-toxic hydrocarbon solvents. Designed specifically for heavy designer lehengas, delicate silk sarees, sherwanis, and luxury labels.",
+    techBadges: ["Hydrocarbon Solvents", "Hand-Finished", "Bead Protection", "Anti-Fading"],
+    timeline: "48 - 72 Hours Delivery",
+    pricingEstimate: "Starts at ₹350 / item",
+    gradient: "from-[#7C3AED] via-[#6366F1] to-[#00D4AA]",
     details: [
-      "Industrial steam generation prevents standard direct-heat burning.",
-      "Vacuum suction tables keep garments tightly aligned for crisp collar crease locking.",
-      "Inspected under bright multi-directional lighting for perfect alignment.",
-      "Delivered upright on heavy-duty plastic contoured shoulder hangers."
+      "Pre-treatment stain spotting using premium Italian solvents.",
+      "Delicate mesh-bag processing for embroidery & beadwork protection.",
+      "Hydrocarbon technology: Zero chemical odors, zero fiber shrinkage.",
+      "Premium breathable hanger wrapping & muslin dust cover packaging."
     ]
   },
   {
@@ -251,6 +257,123 @@ export default function Services() {
             </Link>
           </div>
         </motion.div>
+
+        {/* --- Trust/Quality Section --- */}
+        <div className="mt-32 relative z-10">
+          <div className="text-center mb-12">
+            <motion.h3
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-black text-slate-950 tracking-tight"
+            >
+              The Foldo Promise
+            </motion.h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Droplets,
+                title: "Deep Stain Treatment",
+                desc: "We meticulously pre-treat and target tough stains using specialized fabric-safe spotting agents before the main wash."
+              },
+              {
+                icon: Leaf,
+                title: "Skin-Safe Chemistry",
+                desc: "All our detergents and solvents are rigorously vetted to be gentle on sensitive skin and friendly to the environment."
+              },
+              {
+                icon: Shield,
+                title: "Fabric-Specific Care",
+                desc: "We don't do batch processing. Every fabric type gets its own tailored temperature, cycle, and finishing process."
+              },
+              {
+                icon: Truck,
+                title: "Complimentary Delivery",
+                desc: "Enjoy the convenience of door-to-door service. We pick up and deliver your garments directly to you at no extra charge."
+              }
+            ].map((pillar, idx) => {
+              const PillarIcon = pillar.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="p-6 rounded-3xl bg-white/50 backdrop-blur-sm border border-slate-200 hover:border-[#00D4AA]/50 hover:shadow-lg hover:shadow-[#00D4AA]/5 transition-all"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-[#F8FAFC] border border-slate-100 flex items-center justify-center mb-4">
+                    <PillarIcon className="w-6 h-6 text-[#7C3AED]" />
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-900 mb-2">{pillar.title}</h4>
+                  <p className="text-sm text-slate-600 leading-relaxed font-sans">{pillar.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* --- FAQ Section --- */}
+        <div className="mt-32 max-w-3xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <motion.h3
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-black text-slate-950 tracking-tight"
+            >
+              Frequently Asked Questions
+            </motion.h3>
+          </div>
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {[
+              {
+                q: "What services do you offer?",
+                a: "We provide a comprehensive range of premium garment care services, including everyday executive wash & fold, high-end couture and heritage dry cleaning, steam ironing, and specialized leather or sneaker restoration."
+              },
+              {
+                q: "Do you offer free pickup and delivery?",
+                a: "Yes, we proudly offer complimentary pickup and delivery across our service areas. Our team will collect your items and return them fresh and professionally packaged straight to your door."
+              },
+              {
+                q: "How long does dry cleaning take?",
+                a: "Our standard turnaround for premium dry cleaning and couture care is typically 48 to 72 hours. This ensures we have adequate time for meticulous stain pre-treatment and hand-finishing."
+              },
+              {
+                q: "Will dry cleaning shrink my clothes?",
+                a: "Not at all. We use advanced hydrocarbon solvents and strict temperature controls that are specifically designed to clean delicate fibers without causing any shrinkage or distortion."
+              },
+              {
+                q: "What areas in Hyderabad do you serve?",
+                a: "We cater to numerous neighborhoods across Hyderabad. Please enter your pincode during the booking process or contact our support team to verify service availability in your exact location."
+              },
+              {
+                q: "Do you offer subscription/recurring pickup plans?",
+                a: "Yes! We offer flexible subscription plans for our regular clients. You can easily set up weekly or bi-weekly scheduled pickups so you never have to worry about laundry day again."
+              },
+              {
+                q: "How is pricing calculated?",
+                a: "Pricing depends on the service required. Everyday wash & fold is calculated per kilogram, whereas steam ironing, dry cleaning, and restorations are priced per individual item due to the specialized care involved."
+              },
+              {
+                q: "Is steam ironing available same-day?",
+                a: "Absolutely. We offer an expedited same-day steam ironing service for your daily office wear to ensure you always have a crisp, wrinkle-free look exactly when you need it."
+              }
+            ].map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="bg-white border border-slate-200 rounded-2xl px-6 data-[state=open]:shadow-sm transition-all">
+                <AccordionTrigger className="text-left font-bold text-slate-800 hover:text-[#00D4AA] text-base py-4 hover:no-underline text-lg">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-600 font-sans leading-relaxed text-base pb-4">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   );
