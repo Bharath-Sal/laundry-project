@@ -7,7 +7,7 @@ const TESTIMONIALS = [
   {
     name: "Ananya Rao",
     role: "Corporate Executive",
-    quote: "WashDoor makes wardrobe care effortless. Pickup, cleaning, and delivery are always seamless, and my suits return looking brand new.",
+    quote: "Foldo makes wardrobe care effortless. Pickup, cleaning, and delivery are always seamless, and my suits return looking brand new.",
   },
   {
     name: "Rohit Verma",

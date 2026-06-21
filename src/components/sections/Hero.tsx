@@ -261,7 +261,7 @@ export default function Hero() {
               {/* Custom Navigation */}
               <div className="flex items-center justify-between border-b border-white/5 pb-2">
                 <span className="font-heading font-extrabold text-sm tracking-tight text-white">
-                  Wash<span className="text-luxuryTeal">Door</span>
+                  Fold<span className="text-luxuryTeal">o</span>
                 </span>
                 <span className="text-[10px] text-luxuryTextSecondary font-semibold">Active Order</span>
               </div>
@@ -319,7 +319,7 @@ export default function Hero() {
                 <div className="flex items-center gap-2">
                   <Shield className="w-4 h-4 text-luxuryTeal" />
                   <span className="text-[10px] font-bold uppercase tracking-wider text-white">
-                    WashDoor Care Guarantee
+                    Foldo Care Guarantee
                   </span>
                 </div>
                 <p className="text-[10px] text-luxuryTextSecondary leading-normal">

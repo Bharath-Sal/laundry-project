@@ -66,7 +66,7 @@ export default function Navbar() {
               </div>
             </div>
             <span className="font-heading font-extrabold text-xl tracking-tight text-slate-900">
-              Wash<span className="text-luxuryTeal">Door</span>
+              Fold<span className="text-luxuryTeal">o</span>
             </span>
           </a>
 

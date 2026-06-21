@@ -46,7 +46,7 @@ export default function HowItWorks() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.2)] mb-6"
           >
             <CheckCircle2 className="w-4 h-4 text-[#00D4AA]" />
-            <span className="text-xs font-bold tracking-wider text-white uppercase">The WashDoor Process</span>
+            <span className="text-xs font-bold tracking-wider text-white uppercase">The Foldo Process</span>
           </motion.div>
           
           <motion.h2

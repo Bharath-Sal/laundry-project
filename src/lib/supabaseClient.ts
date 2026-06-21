@@ -6,7 +6,7 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "your-anon-
 if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
   if (typeof window !== "undefined") {
     console.warn(
-      "⚠️ WashDoor: Supabase environment variables are not configured in .env.local. " +
+      "⚠️ Foldo: Supabase environment variables are not configured in .env.local. " +
       "Falling back to dummy credentials. Database integrations will run in dry-run mode."
     );
   }

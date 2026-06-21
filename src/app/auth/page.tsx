@@ -37,7 +37,7 @@ export default function AuthPage() {
       setTimeout(() => {
         setUser({
           id: "mock-user",
-          email: `mock-${provider}-user@washdoor.in`,
+          email: `mock-${provider}-user@foldo.in`,
           app_metadata: {},
           aud: "authenticated",
           created_at: new Date().toISOString(),
@@ -69,7 +69,7 @@ export default function AuthPage() {
       setTimeout(() => {
         setUser({
           id: "mock-user",
-          email: authEmail || "guest@washdoor.in",
+          email: authEmail || "guest@foldo.in",
           app_metadata: {},
           aud: "authenticated",
           created_at: new Date().toISOString(),

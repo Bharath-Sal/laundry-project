@@ -116,7 +116,7 @@ export default function Dashboard() {
     if (isMock) {
       // 1. Sandbox Mock Fetch from LocalStorage
       setTimeout(() => {
-        const mockOrders: Order[] = JSON.parse(localStorage.getItem("washdoor_mock_orders") || "[]");
+        const mockOrders: Order[] = JSON.parse(localStorage.getItem("foldo_mock_orders") || "[]");
         setOrders(mockOrders);
         if (mockOrders.length > 0) {
           setSelectedOrder(mockOrders[mockOrders.length - 1]); // default select latest order
@@ -232,7 +232,7 @@ export default function Dashboard() {
       setTimeout(() => {
         setUser({
           id: "mock-user-123",
-          email: authEmail || "customer@washdoor.in",
+          email: authEmail || "customer@foldo.in",
           user_metadata: { name: "Premium Client" }
         });
         setAuthLoading(false);
@@ -260,7 +260,7 @@ export default function Dashboard() {
   const handleDemoLogin = () => {
     setUser({
       id: "mock-demo-id",
-      email: "demo@washdoor.in",
+      email: "demo@foldo.in",
       user_metadata: { name: "Valued Customer" }
     });
   };
@@ -308,7 +308,7 @@ export default function Dashboard() {
 
           <div className="text-right flex items-center gap-6">
             <span className="text-xl font-extrabold tracking-wider bg-gradient-to-r from-[#00D4AA] to-[#7C3AED] bg-clip-text text-transparent font-sans">
-              WASHDOOR
+              FOLDO
             </span>
             {user && (
               <button

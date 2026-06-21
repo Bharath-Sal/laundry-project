@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "WashDoor | Luxury Laundry & Dry Cleaning Hyderabad",
+  title: "Foldo | Luxury Laundry & Dry Cleaning Hyderabad",
   description: "Experience premium fabric care, organic dry cleaning, and 24-hour turnaround in Banjara Hills, Gachibowli, Kondapur, and Hitech City.",
 };
 

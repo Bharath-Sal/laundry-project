@@ -31,7 +31,7 @@ export default function CartPage() {
   // Pull mock orders that the sandbox booking flow stores in localStorage
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("washdoor_mock_orders");
+      const stored = localStorage.getItem("foldo_mock_orders");
       if (stored) {
         try {
           const parsed = JSON.parse(stored);
