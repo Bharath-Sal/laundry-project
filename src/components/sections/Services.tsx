@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Shirt, Flame, ChevronRight, Gem, ShieldCheck, CheckCircle, LucideIcon, Wind, Droplets, Truck, Shield, Leaf } from "lucide-react";
+import { Sparkles, Shirt, Flame, ChevronRight, Gem, ShieldCheck, CheckCircle, LucideIcon, Droplets, Truck, Shield, Leaf } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -328,7 +328,7 @@ export default function Services() {
               Frequently Asked Questions
             </motion.h3>
           </div>
-          <Accordion type="single" collapsible className="w-full space-y-4">
+          <Accordion className="w-full space-y-4">
             {[
               {
                 q: "What services do you offer?",
